@@ -49,6 +49,8 @@ function storeInput(e) {
 function completeForm() {
     var data = []
     
+    data[0] = []
+
     for (i = 0; i < elementArray.length; i++) {
         if (document.getElementById(elementArray[i]).children[0].value !== "") {
             data[0].push(document.getElementById(elementArray[i]).children[0].value);
@@ -57,7 +59,7 @@ function completeForm() {
     data[1] = document.getElementById("numberInput").value;
     
     
-    localStorage.setItem('group data', data);
+    sessionStorage.setItem('groupData', JSON.stringify(data));
     window.location.href = 'display.html'
 }
 
