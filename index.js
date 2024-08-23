@@ -14,6 +14,15 @@ function generateInputID() {
     return "input" + InputID.toString();
 }
 
+function testMax(e) {
+    if (e.target.value > elementArray.length) {
+        e.target.value = elementArray.length - 1;
+    }
+}
+
+document.getElementById('numberInput').addEventListener('input', testMax);
+
+
 function addInput() {
     form = document.getElementById("form");
     thisDiv = document.createElement('div');
@@ -45,6 +54,17 @@ function storeInput(e) {
         deleteInput(e.target);
     }
 }
+
+const groupData = JSON.parse(sessionStorage.getItem('groupData'));
+
+if (groupData) {
+    for (let i = 0; i < groupData[0].length; i++) {
+        addInput();
+        document.getElementById(elementArray[i]).children[0].value = groupData[0][i];
+    }
+    document.getElementById("numberInput").value = groupData[1];
+}
+
 
 function completeForm() {
     var data = []

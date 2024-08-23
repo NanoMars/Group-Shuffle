@@ -10,6 +10,7 @@
 }
 
 .inside-container {
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -17,9 +18,16 @@
     align-items: flex-start;
     align-content: flex-start;
     gap: 10px;
+    list-style: none;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .item {
     flex: 1 1 auto;
+}
 
+.body {
+    background-color: #E5E9EC;
 }
