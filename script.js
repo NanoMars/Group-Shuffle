@@ -38,19 +38,19 @@ function deleteInput(e) {
 addInput()
 
 function storeInput(e) {
-    
     console.log(!elementArray.findIndex(element => element === e.target.parentElement.id) + 1)
     if (e.target.value !== "" && elementArray.findIndex(element => element === e.target.parentElement.id) === elementArray.length - 1) {
         addInput();
     } else if (e.target.value === "" && elementArray.findIndex(element => element === e.target.parentElement.id) !== elementArray.length - 1) {
         deleteInput(e.target);
     }
+}
 
+function completeForm() {
+    var numberInputValue = document.getElementById("numberInput").value;
+    console.log(numberInputValue);
     for (i = 0; i < elementArray.length; i++) {
         console.log(document.getElementById(elementArray[i]).children[0].value);
     }
-
 }
-
-input1.addEventListener('input', storeInput);
 
