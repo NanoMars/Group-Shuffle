@@ -32,6 +32,9 @@ function addInput() {
     inputElement = document.createElement('input');
     inputElement.id = generateInputID();
     inputElement.type = "text";
+    inputElement.classList.add('text-input');
+    inputElement.classList.add('interactive');
+    inputElement.placeholder = "Add a name";
     thisDiv.append(inputElement);
     thisDiv.addEventListener('input', storeInput);
     elementArray.push(thisDiv.id);

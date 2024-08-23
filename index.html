@@ -9,11 +9,12 @@
   </head>
   <body class="body">
     <main>
-        
-        <form id="form">
-            <button type="button" onclick="completeForm()"> button</button>
-            <input type="number" id="numberInput" placeholder="How many groups?">
-        </form>
+        <div class="menu">
+            <form id="form" class="interactive">
+                <input type="number" id="numberInput" placeholder="Count" class="interactive variable-width text-input">
+                <button type="button" onclick="completeForm()" class="interactive">Go!</button>
+            </form>
+        </div>
     </main>
 	<script src="index.js"></script>
   </body>
