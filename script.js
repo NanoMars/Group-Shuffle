@@ -2,6 +2,7 @@ DivID = 0
 InputID = 0
 
 
+
 elementArray = []; // every single element will have a unique randomly generated ID used as the div ID and 
 
 function generateDivID() {
@@ -32,7 +33,8 @@ function storeInput(e) {
     
     
     console.log(e.target.id);
-    console.log(elementArray.findIndex(arr => arr.includes(e.target.id)))
+    console.log(elementArray.findIndex(element => element === e.target.id)) // figured out the problem, looking for input1 instead of div1
+    console.log(elementArray)
     if (e.target.value === "" && !elementArray[elementArray.findIndex(arr => arr.includes(e.target.id)) + 1]) {
         addInput();
     }
