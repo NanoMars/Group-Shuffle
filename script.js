@@ -47,10 +47,17 @@ function storeInput(e) {
 }
 
 function completeForm() {
-    var numberInputValue = document.getElementById("numberInput").value;
-    console.log(numberInputValue);
+    var data = []
+    
     for (i = 0; i < elementArray.length; i++) {
-        console.log(document.getElementById(elementArray[i]).children[0].value);
+        if (document.getElementById(elementArray[i]).children[0].value !== "") {
+            data[0].push(document.getElementById(elementArray[i]).children[0].value);
+        }
     }
+    data[1] = document.getElementById("numberInput").value;
+    
+    
+    localStorage.setItem('group data', data);
+    window.location.href = 'display.html'
 }
 
