@@ -27,39 +27,30 @@ function addInput() {
     elementArray.push(thisDiv.id);
 }
 
-function deleteInput(id) {
+function deleteInput(e) {
     form = document.getElementById("form");
-    form.removeChild(form.id);
-    elementArray.pop();
+    if (e.parentElement && e.parentElement.parentNode === form) {
+        elementArray.splice(elementArray.findIndex(element => element === e.parentElement.id), 1);
+        form.removeChild(e.parentElement);
+    }
 }
 
 addInput()
 
 function storeInput(e) {
     
-    
-    /*console.log(e.target.id);
-    console.log(elementArray.findIndex(element => element === e.target.parentElement.id)) // figured out the problem, looking for input1 instead of div1
-    console.log(e.target.parentElement.id)*/
     console.log(!elementArray.findIndex(element => element === e.target.parentElement.id) + 1)
     if (e.target.value !== "" && elementArray.findIndex(element => element === e.target.parentElement.id) === elementArray.length - 1) {
         addInput();
     } else if (e.target.value === "" && elementArray.findIndex(element => element === e.target.parentElement.id) !== elementArray.length - 1) {
-
+        deleteInput(e.target);
     }
 
-    
+    for (i = 0; i < elementArray.length; i++) {
+        console.log(document.getElementById(elementArray[i]).children[0].value);
+    }
 
-
-
-    /*
-    if (e.target.value !== "") {
-        elementArray.push(e.target.id);
-    } else if (e.target.value === "" && elementArray[/* self position + 1 ]) {
-        // remove this specific element from the array
-    }*/
 }
 
 input1.addEventListener('input', storeInput);
 
-document.getElementById("asdf").innerHTML = "Hello World!";
