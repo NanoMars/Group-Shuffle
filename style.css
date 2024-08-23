@@ -31,3 +31,10 @@
 .body {
     background-color: #E5E9EC;
 }
+
+ul:before{
+    content:attr(aria-label);
+    font-size:120%;
+    font-weight:bold;
+
+}

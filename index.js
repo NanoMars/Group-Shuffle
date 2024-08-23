@@ -14,9 +14,10 @@ function generateInputID() {
     return "input" + InputID.toString();
 }
 
-function testMax(e) {
-    if (e.target.value > elementArray.length) {
-        e.target.value = elementArray.length - 1;
+function testMax() {
+    const numberInput = document.getElementById('numberInput');
+    if (numberInput.value > elementArray.length - 1) {
+        numberInput.value = elementArray.length - 1;
     }
 }
 
@@ -42,12 +43,12 @@ function deleteInput(e) {
         elementArray.splice(elementArray.findIndex(element => element === e.parentElement.id), 1);
         form.removeChild(e.parentElement);
     }
+    testMax()
 }
 
 addInput()
 
 function storeInput(e) {
-    console.log(!elementArray.findIndex(element => element === e.target.parentElement.id) + 1)
     if (e.target.value !== "" && elementArray.findIndex(element => element === e.target.parentElement.id) === elementArray.length - 1) {
         addInput();
     } else if (e.target.value === "" && elementArray.findIndex(element => element === e.target.parentElement.id) !== elementArray.length - 1) {
@@ -56,15 +57,6 @@ function storeInput(e) {
 }
 
 const groupData = JSON.parse(sessionStorage.getItem('groupData'));
-
-if (groupData) {
-    for (let i = 0; i < groupData[0].length; i++) {
-        addInput();
-        document.getElementById(elementArray[i]).children[0].value = groupData[0][i];
-    }
-    document.getElementById("numberInput").value = groupData[1];
-}
-
 
 function completeForm() {
     var data = []
@@ -83,3 +75,10 @@ function completeForm() {
     window.location.href = 'display.html'
 }
 
+if (groupData) {
+    for (let i = 0; i < groupData[0].length; i++) {
+        addInput();
+        document.getElementById(elementArray[i]).children[0].value = groupData[0][i];
+    }
+    document.getElementById("numberInput").value = groupData[1];
+}
