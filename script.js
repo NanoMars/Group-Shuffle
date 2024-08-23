@@ -27,16 +27,25 @@ function addInput() {
     elementArray.push(thisDiv.id);
 }
 
+function deleteInput(id) {
+    form = document.getElementById("form");
+    form.removeChild(form.id);
+    elementArray.pop();
+}
+
 addInput()
 
 function storeInput(e) {
     
     
-    console.log(e.target.id);
-    console.log(elementArray.findIndex(element => element === e.target.id)) // figured out the problem, looking for input1 instead of div1
-    console.log(elementArray)
-    if (e.target.value === "" && !elementArray[elementArray.findIndex(arr => arr.includes(e.target.id)) + 1]) {
+    /*console.log(e.target.id);
+    console.log(elementArray.findIndex(element => element === e.target.parentElement.id)) // figured out the problem, looking for input1 instead of div1
+    console.log(e.target.parentElement.id)*/
+    console.log(!elementArray.findIndex(element => element === e.target.parentElement.id) + 1)
+    if (e.target.value !== "" && elementArray.findIndex(element => element === e.target.parentElement.id) === elementArray.length - 1) {
         addInput();
+    } else if (e.target.value === "" && elementArray.findIndex(element => element === e.target.parentElement.id) !== elementArray.length - 1) {
+
     }
 
     
