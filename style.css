@@ -87,6 +87,7 @@
     border: none;
     fill: #F3F4F6;
     font-family: 'Gontserrat-Regular';
+    padding-left: 5px;
 }
 
 .text-input {
