@@ -75,10 +75,6 @@ function completeForm() {
     }
     data[1] = document.getElementById("numberInput").value;
 
-    if (data[0].length < data[1]) {
-        data[1] = data[0].length;
-    }
-    
     if (data[0].length < 1) {
         alert("Please enter at least one name");
         return;
@@ -86,6 +82,12 @@ function completeForm() {
         alert("Please enter a number of groups");
         return;
     }
+
+    if (data[0].length < data[1]) {
+        data[1] = data[0].length;
+    }
+    
+    
     
     sessionStorage.setItem('groupData', JSON.stringify(data));
     window.location.href = 'display.html'

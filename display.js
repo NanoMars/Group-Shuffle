@@ -40,6 +40,7 @@ function createList(id) {
     list.classList.add('inside-container');
 
     list.setAttribute('aria-label', createAriaLabel());
+    list.style.fontFamily = 'Gontserrat';
 
     document.getElementById('outside-container').append(list);
 }
