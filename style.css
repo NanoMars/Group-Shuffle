@@ -7,6 +7,7 @@
     align-items: flex-start;
     align-content: flex-start;
     gap: 10px;
+    margin-top: 60px;
 }
 
 .inside-container {
@@ -22,6 +23,10 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.right-align {
+    margin-left: auto;
 }
 
 .menu {
@@ -66,6 +71,31 @@
 
 .body {
     background-color: #E5E9EC;
+}
+
+.navbar {
+    display: flex; 
+    flex-direction: row;
+    background-color: #ffffff;
+    position: fixed; 
+    top: 0;
+    width: calc(100% - 20px); /* subtract 20px for the left and right gaps */
+    height: 50px;
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;
+    left: 10px;
+    right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-item {
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
 }
 
 .flex-grow {
