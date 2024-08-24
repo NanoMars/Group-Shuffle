@@ -16,8 +16,10 @@ function generateInputID() {
 
 function testMax() {
     const numberInput = document.getElementById('numberInput');
-    if (numberInput.value > elementArray.length - 1) {
-        numberInput.value = elementArray.length - 1;
+    if (numberInput.value < 1 && numberInput.value !== "") {
+        numberInput.value = 1;
+    } else if (numberInput.value > 50) {
+        numberInput.value = 50;
     }
 }
 
@@ -63,16 +65,27 @@ const groupData = JSON.parse(sessionStorage.getItem('groupData'));
 
 function completeForm() {
     var data = []
-    
     data[0] = []
-
+    
+    
     for (i = 0; i < elementArray.length; i++) {
         if (document.getElementById(elementArray[i]).children[0].value !== "") {
             data[0].push(document.getElementById(elementArray[i]).children[0].value);
         }
     }
     data[1] = document.getElementById("numberInput").value;
+
+    if (data[0].length < data[1]) {
+        data[1] = data[0].length;
+    }
     
+    if (data[0].length < 1) {
+        alert("Please enter at least one name");
+        return;
+    } else if (data[1] === "") {
+        alert("Please enter a number of groups");
+        return;
+    }
     
     sessionStorage.setItem('groupData', JSON.stringify(data));
     window.location.href = 'display.html'
@@ -84,4 +97,8 @@ if (groupData) {
         document.getElementById(elementArray[i]).children[0].value = groupData[0][i];
     }
     document.getElementById("numberInput").value = groupData[1];
+    if (elementArray.length === 0) {
+        addInput();
+    }
 }
+
